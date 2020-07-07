@@ -72,7 +72,7 @@ int main()
     // lambda expression since barycentric_rational is trivial to copy.
     // Here we're using simple bisection to find the root:
     boost::uintmax_t iterations = (std::numeric_limits<boost::uintmax_t>::max)();
-    double abscissa_3 = boost::math::tools::bisect([=](quantity<si::energy, double> x) { return b(x) - 3.* si::joule; }, 0.44 *si::joule, 1.24 *si::joule, boost::math::tools::eps_tolerance<double>(), iterations).first;
+    quantity<si::electric_charge, double> abscissa_3 = boost::math::tools::bisect([=](quantity<si::energy, double> x) { return b(x) - 3.* si::joule; }, 0.44 *si::joule, 1.24 *si::joule, boost::math::tools::eps_tolerance<double>(), iterations).first;
     std::cout << "Abscissa value that yields a potential of 3 = " << abscissa_3 << std::endl;
     std::cout << "Root was found in " << iterations << " iterations." << std::endl;
     //
